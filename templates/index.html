@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distractobot Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <div class="header-content" style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h1>Distractobot Dashboard</h1>
+                    <p>The one stop shop to turn your distractive thoughts into actionables</p>
+                </div>
+                <nav style="display: flex; gap: 1rem;">
+                    <a href="/" class="nav-link" style="color: var(--accent-color); font-weight: 600; text-decoration: none;">Distractions</a>
+                    <a href="/actionables" class="nav-link" style="color: var(--text-secondary); text-decoration: none; transition: color 0.2s;">Actionables</a>
+                </nav>
+            </div>
+        </header>
+
+        <div class="controls-container">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search by summary or source...">
+            </div>
+            <div class="filter-box">
+                <div class="date-filter">
+                    <input type="date" id="startDate" title="Start Date">
+                    <span style="color: var(--text-secondary);">to</span>
+                    <input type="date" id="endDate" title="End Date">
+                </div>
+                <select id="statusFilter">
+                    <option value="all">All Statuses</option>
+                    <option value="open">Open</option>
+                    <option value="rejected">Rejected</option>
+                    <option value="cleared">Cleared</option>
+                </select>
+                <button id="applyFiltersBtn" class="assign-btn">Apply</button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table id="thoughtsTable">
+                <thead>
+                    <tr>
+                        <th>Time</th>
+                        <th>Intent</th>
+                        <th>Source</th>
+                        <th>Summary</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Data will be populated here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Assignment Modal -->
+    <div id="assignModal" class="modal-overlay hidden">
+        <div class="modal-container">
+            <h2>Assign Actionable</h2>
+            <div class="form-group autocomplete">
+                <label for="listType">List Type</label>
+                <input type="text" id="listType" placeholder="e.g. Movie Watchlist, Work Task" autocomplete="off">
+                <div id="autocompleteList" class="autocomplete-items hidden">
+                    <!-- Populated by JS -->
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="subtype">Subtype (Optional)</label>
+                <input type="text" id="subtype" placeholder="e.g. Action, Comedy, Work" autocomplete="off">
+            </div>
+            <div class="form-group">
+                <label for="actionDetails">Details (Optional)</label>
+                <textarea id="actionDetails" placeholder="Add extra notes..." rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="actionDeadline">Deadline (Optional)</label>
+                <input type="date" id="actionDeadline">
+            </div>
+            <div class="modal-actions">
+                <button id="cancelAssignBtn" class="cancel-btn">Cancel</button>
+                <button id="submitAssignBtn" class="assign-btn">Submit Assignment</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification for actions -->
+    <div id="toast" class="toast hidden">Action completed successfully</div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

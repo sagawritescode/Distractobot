@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actionables | Distractobot</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <div class="header-content" style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <h1>Actionables Dashboard</h1>
+                    <p>Review and manage your categorized action items</p>
+                </div>
+                <nav style="display: flex; gap: 1rem;">
+                    <a href="/" class="nav-link" style="color: var(--text-secondary); text-decoration: none; transition: color 0.2s;">Distractions</a>
+                    <a href="/actionables" class="nav-link" style="color: var(--accent-color); font-weight: 600; text-decoration: none;">Actionables</a>
+                </nav>
+            </div>
+        </header>
+
+        <div class="controls-container">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search details or summary...">
+            </div>
+            <div class="filter-box">
+                <select id="listTypeFilter">
+                    <option value="">All Lists</option>
+                    <!-- Dynamically populated -->
+                </select>
+                <select id="subtypeFilter" style="min-width: 120px;">
+                    <option value="">All Subtypes</option>
+                    <!-- Dynamically populated -->
+                </select>
+                <button id="applyFiltersBtn" class="assign-btn">Apply Filters</button>
+            </div>
+        </div>
+
+        <div class="table-container">
+            <table id="actionablesTable">
+                <thead>
+                    <tr>
+                        <th>List Type</th>
+                        <th>Subtype</th>
+                        <th>Details</th>
+                        <th>Original Summary</th>
+                        <th>Deadline</th>
+                        <th>Created At</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <!-- Data will be populated here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="/static/actionables.js"></script>
+</body>
+</html>

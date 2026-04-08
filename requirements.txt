@@ -1,0 +1,8 @@
+sounddevice
+soundfile
+numpy
+rumps
+pynput
+mlx-whisper
+requests
+Flask
